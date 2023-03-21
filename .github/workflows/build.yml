@@ -35,6 +35,17 @@ jobs:
           # 아닙니다. 해당 프로젝트의 node_modules가 변했는지 안 변했는지를 이용해서
           # 모듈 변화가 있을 때만 npm install을 해줄 수도 있어요.
           cache: 'npm'
-      - name: 
+      - name: get diff
+        id: get_diff
+        run: |
+          git diff --quiet ./README.md || echo "::set-output name=new_changes_exist::true"
+      - name: update README.md
+        if: steps.get_diff.outputs.new_changes_exist == 'true'
+        run: |
+          git add ./README.md
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "Automatic Update README.md"
+          git push
       
   
