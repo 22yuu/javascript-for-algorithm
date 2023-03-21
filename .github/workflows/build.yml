@@ -1,0 +1,40 @@
+name: automatically-update-readme
+
+# workflow를 동작하게하는 trigger입니다.
+# repository에 push 이벤트가 발생할 때마다 실행될 거예요.
+# push 말고도 여러 가지 이벤트들이 있겠죠?
+on: push
+
+# job은 사용자가 정한 플랫폼을 통해 step이라는 일련의 과정을 실행할 수 있어요.
+# 여러 개의 job을 사용할 수 있으며, 여러 개의 job을 사용할 때는 서로 정보도 교환할 수 있어요.
+# 그리고 각각 독립적으로도 실행할 수도 있어요.
+# 해당 예제는 간단한 workflow이므로 하나의 job만 갖도록 할게요.
+jobs:
+  build:
+    # Create a ubuntu virtual machine
+    runs-on: ubuntu-latest
+    
+    # Checkout repo code
+    # job 안에는 step이라는 키워드가 옵니다. step은 shell script를 실행할 수도 있고,
+    # 누군가 만들어 놓은 Action을 사용할 수도 있어요.
+    steps:
+      # GitHub Actions는 해당 프로젝트를 리눅스 환경에 checkout하고 나서 실행을 합니다.
+      # 마치 우리가 브랜치를 만들 때 checkout하는 것처럼요. 꼭 필요합니다.
+      # 참고로 아래 코드는 누군가 만들어놓은 Action을 사용하는 겁니다.
+      # 만들어놓은 Action을 사용할 때는 `uses`라는 키워드를 사용해야 돼요.
+      - uses: actions/checkout@v3
+      
+      # 해당 환경을 Node.js 위에서 실행하겠다고 명시해줍니다.
+      # 마찬가지로 누군가 만들어 놓은 Action이겠죠?
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        # with라는 키워드로 Action에 값을 전달할 수 있어요.
+        with:
+          node-version: '16.14.0'
+          # push할 때마다 npm을 install 해야될까요? (시간이 여간 많이 걸리는 게 아닐 텐데 ..)
+          # 아닙니다. 해당 프로젝트의 node_modules가 변했는지 안 변했는지를 이용해서
+          # 모듈 변화가 있을 때만 npm install을 해줄 수도 있어요.
+          cache: 'npm'
+      - name: 
+      
+  
