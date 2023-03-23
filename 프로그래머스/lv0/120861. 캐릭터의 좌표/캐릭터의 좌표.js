@@ -12,7 +12,7 @@ function solution(keyinput, board) {
     const maxY = Math.floor(board[1] / 2);
     
     for(let cmd of keyinput) {
-        const [x, y] = obj[cmd];
+        const [x, y] = obj[cmd]; // 비구조화 할당
         
         const nx = answer[0] + x;
         const ny = answer[1] + y;
