@@ -5,7 +5,8 @@
   "main": "./utils/build.js",
   "type": "module",
   "scripts": {
-    "build": "node ./utils/build.js"
+    "build": "node ./utils/build.js",
+    "test": "node ./utils/build.js"
   },
   "keywords": [],
   "author": "",
