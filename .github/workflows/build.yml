@@ -16,7 +16,8 @@ jobs:
     # Create a ubuntu virtual machine
     runs-on: ubuntu-latest
 
-    permissions: read-all|write-all
+    permissions:
+      contents: write
 
     # Checkout repo code
     # job 안에는 step이라는 키워드가 옵니다. step은 shell script를 실행할 수도 있고,
