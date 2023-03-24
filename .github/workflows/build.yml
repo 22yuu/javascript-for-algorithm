@@ -39,7 +39,6 @@ jobs:
       - name: build README.md
         run: npm run build
       - name: update README.md
-        if: steps.get_diff.outputs.new_changes_exist == 'true'
         run: |
           git add ./README.md
           git config user.name github-actions
