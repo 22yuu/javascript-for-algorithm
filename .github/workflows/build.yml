@@ -35,6 +35,7 @@ jobs:
           # 아닙니다. 해당 프로젝트의 node_modules가 변했는지 안 변했는지를 이용해서
           # 모듈 변화가 있을 때만 npm install을 해줄 수도 있어요.
           cache: 'npm'
+
       - name: get diff
         id: get_diff
         run: |
