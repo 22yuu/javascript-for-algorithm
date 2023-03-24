@@ -38,10 +38,6 @@ jobs:
 
       - name: build README.md
         run: npm run build
-      - name: get diff
-        id: get_diff
-        run: |
-          git diff --quiet ./README.md
       - name: update README.md
         if: steps.get_diff.outputs.new_changes_exist == 'true'
         run: |
