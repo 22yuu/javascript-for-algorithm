@@ -41,7 +41,7 @@ jobs:
       - name: get diff
         id: get_diff
         run: |
-          git diff --quiet ./README.md || echo "::set-output name=new_changes_exist::true"
+          git diff --quiet ./README.md
       - name: update README.md
         if: steps.get_diff.outputs.new_changes_exist == 'true'
         run: |
