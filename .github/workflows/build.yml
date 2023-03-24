@@ -36,6 +36,8 @@ jobs:
           # 모듈 변화가 있을 때만 npm install을 해줄 수도 있어요.
           cache: 'npm'
 
+      - name: build README.md
+        run: npm run build
       - name: get diff
         id: get_diff
         run: |
