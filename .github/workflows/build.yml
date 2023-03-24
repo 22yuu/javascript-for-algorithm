@@ -1,4 +1,5 @@
 name: automatically-update-readme
+permissions: read-all|write-all
 
 # workflow를 동작하게하는 trigger입니다.
 # repository에 push 이벤트가 발생할 때마다 실행될 거예요.
