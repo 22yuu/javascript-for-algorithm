@@ -1,6 +1,5 @@
 function solution(progresses, speeds) {
     if(progresses.length <= 1) return [progresses.length];
-    
     /*
     const answer = [];
     // 기능은 진도가 100%일 때 서비스에 반영할 수 있음
@@ -25,14 +24,14 @@ function solution(progresses, speeds) {
         } else if(stack[0] >= days[i]) {
             stack.push(days[i]);
         } else {
-            answer.push(stack.length);
-            stack = [days[i]];
+            answer.push(stack.length); // [7, 3] -> [2]
+            stack = [days[i]]; // [7, 3] -> [9]
         }
     }
     
     // 스택이 비어 있지 않으면?
     if(stack !== 0) {
-        answer.push(stack.length);
+        answer.push(stack.length); // [9] -> [2, 1];
     }
     
     // 배포마다 몇 개의 기능이 배포되는지?
@@ -40,26 +39,27 @@ function solution(progresses, speeds) {
     */
     
     // 다른 풀이 방식
-    const answer = [0];
-    const days = [];
-    let max = null;
+    const answer = [0]; // 배포된 기능 수를 카운트를 해서 저장해줄 거에요.
+    const days = []; // 배포 일수를 계산해서 저장할 배열
+    let max = null; // 최대 값 저장하기 위한 변수
     
     for(let i = 0, j = 0; i < progresses.length; i++) {
-        days[i] = Math.ceil((100 - progresses[i]) / speeds[i]);
+        days[i] = Math.ceil((100 - progresses[i]) / speeds[i]); // 완료일을 구해준다.
         
-        if(max === null) {
-            max = days[i];
-            answer[j] += 1;
+        if(max === null) { // 첫 번째 max값을 저장하기 위해서 
+            max = days[i]; // max = 7;
+            answer[j] += 1; // answer[0] = answer[0] + 1; -> 0 + 1 = 1
             continue;
         }
         
-        if(days[i] <= max) {
-            answer[j] += 1
-        } else {
-            max = days[i];
-            answer[++j] = 1;
+        if(days[i] <= max) { // 9 <= 7
+            answer[j] += 1 // answer[0] = answer[0] + 1; -> 1 + 1 = 2;
+        } else { 
+            max = days[i]; // max = 9;
+            answer[++j] = 1; // 전위증감 answer[1] = 1;
         }
     }
     
+    // [2, 1]
     return answer;
 }
