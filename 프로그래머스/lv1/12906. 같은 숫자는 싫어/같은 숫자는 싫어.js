@@ -1,22 +1,16 @@
 function solution(arr)
 {
-    var answer = [];
-    const stack = [];
+    const answer = [arr[0]];
+    let index = 0;
     
-    for(let n of arr) {
-        if(stack.length === 0) {
-            stack.push(n);
-            continue;
-        }
+    
+    for(let i = 1; i < arr.length; i++) {
+        if(answer[index] === arr[i]) continue;
         
-        const peek = stack[stack.length - 1];
-        
-        if(n === peek) continue;
-        else {
-            stack.push(n);
-        }
+        answer.push(arr[i]);
+        index++;
     }
     
     
-    return stack;
+    return answer;
 }
