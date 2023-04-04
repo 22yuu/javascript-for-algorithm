@@ -1,6 +1,7 @@
 function solution(progresses, speeds) {
     if(progresses.length <= 1) return [progresses.length];
     
+    /*
     const answer = [];
     // 기능은 진도가 100%일 때 서비스에 반영할 수 있음
     // 각 기능의 개발 속도는 모두 다르기 때문에 뒤에 있는 기능이 앞에 있는 기능보다 먼저 개발될 수 있음
@@ -35,5 +36,30 @@ function solution(progresses, speeds) {
     }
     
     // 배포마다 몇 개의 기능이 배포되는지?
+    return answer;
+    */
+    
+    // 다른 풀이 방식
+    const answer = [0];
+    const days = [];
+    let max = null;
+    
+    for(let i = 0, j = 0; i < progresses.length; i++) {
+        days[i] = Math.ceil((100 - progresses[i]) / speeds[i]);
+        
+        if(max === null) {
+            max = days[i];
+            answer[j] += 1;
+            continue;
+        }
+        
+        if(days[i] <= max) {
+            answer[j] += 1
+        } else {
+            max = days[i];
+            answer[++j] = 1;
+        }
+    }
+    
     return answer;
 }
