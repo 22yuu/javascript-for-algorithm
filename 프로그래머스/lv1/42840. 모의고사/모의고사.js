@@ -25,7 +25,6 @@ function solution(answers) {
         }
     }
     
-    const keys = Object.keys(counts);
     const values = Object.values(counts);
     const max = Math.max(...values);
     
