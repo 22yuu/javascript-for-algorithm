@@ -2,39 +2,29 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-
-	private static int N, K, MAX;
-	private static int[] temp;
+	
+	public static int MAX = Integer.MIN_VALUE;
 	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		
-		N = Integer.parseInt(st.nextToken());
-		K = Integer.parseInt(st.nextToken());
-		MAX = Integer.MIN_VALUE;
-		
-		temp = new int[N];
-		
+				
+		int N = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());
+		int[] psum = new int[100001];
+		int temp = 0;
 		st = new StringTokenizer(br.readLine());
 		
-		for(int i = 0; i < N; i++) {
-			temp[i] = Integer.parseInt(st.nextToken());
+		for(int i = 1; i <= N; i++) {
+			temp = Integer.parseInt(st.nextToken());
+			psum[i] = psum[i - 1] + temp;
 		}
-
 		
-		for(int i = 0; i < N; i++) {
-			int sum = 0;
+		for(int i = K; i <= N; i++) {
+			MAX = Math.max(MAX, psum[i] - psum[i - K]);
+		}
 			
-			for(int j = i; j < i+K; j++) {
-				if( j > N - 1) {
-					System.out.println(MAX);
-					return;
-				}
-				sum += temp[j];
-			}
-			MAX = Math.max(MAX, sum);
-		}		
 		System.out.println(MAX);
+		return;
 	}
 }
