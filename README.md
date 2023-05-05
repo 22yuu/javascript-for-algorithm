@@ -11,12 +11,12 @@
 |   단계   | 해결한 문제 수 |
 | :------: | :------------: |
 |  Bronze  |       5        |
-|  Silver  |       4        |
+|  Silver  |       5        |
 |   Gold   |       0          |
 | Platinum |       0      |
 | Diamond  |       0       |
 |   Ruby   |       0          |
-|  Total   |       9         |
+|  Total   |       10         |
 
 
 
