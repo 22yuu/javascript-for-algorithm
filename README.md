@@ -12,11 +12,11 @@
 | :------: | :------------: |
 |  Bronze  |       5        |
 |  Silver  |       6        |
-|   Gold   |       0          |
+|   Gold   |       1          |
 | Platinum |       0      |
 | Diamond  |       0       |
 |   Ruby   |       0          |
-|  Total   |       11         |
+|  Total   |       12         |
 
 
 
