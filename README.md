@@ -33,5 +33,5 @@
 |   lv4    |       0        |
 |   lv5    |       0        |
 |  unrated |       24    |
-|  Total   |       70           |
+|  Total   |       71           |
 
